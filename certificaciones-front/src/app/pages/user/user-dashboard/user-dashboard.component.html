@@ -1,0 +1,35 @@
+<div class="container-dash">
+  <div class="content-dash">
+    <h1>Bienvenido al portal de Empleados</h1>
+    <div class="container-buttons">
+      <button class="certificado" (click)="createCertificado()">Generar Certificado Empleado</button>
+      <button class="paz-salvo" (click)="enviarSolicitud()">Generar Paz y Salvo</button>
+    </div>
+    <button *ngIf="!userSolicitudes" class="solicitudes" (click)="getSolicitudUserId()"> Ver Solicitudes <span class="mas">+</span></button>
+    <table *ngIf="userSolicitudes">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Estado solicitud</th>
+          <th>Obervaciones</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of userSolicitudes">
+          <td>{{ solicitud.fechaHoraSolicitud }}</td>
+          <td>{{ solicitud.estadoSolicitud}}</td>
+          <td *ngIf="solicitud.estadoSolicitud === 'RECHAZADO'">
+            <span>Tu solicitud ha sido rechazada debido a que aun no cumples con los requisitos.</span>
+          </td>
+          <td *ngIf="solicitud.estadoSolicitud === 'LISTO'">
+            <span>Tu solicitud ha sido aceptada, podras descargar tu paz y salvo y diligenciarlo.</span>
+          </td>
+          <td *ngIf="solicitud.estadoSolicitud === 'LISTO'">
+            <button class="download" (click)="createPazySalvo()"> <i class="fa-solid fa-file-arrow-down"></i> Descargar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

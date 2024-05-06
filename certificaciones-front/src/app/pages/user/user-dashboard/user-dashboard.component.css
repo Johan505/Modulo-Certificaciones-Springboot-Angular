@@ -1,0 +1,78 @@
+.container-dash{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+table {
+    width: 100em;
+    border-collapse: collapse; /* Los bordes de la tabla aparecen como una sola línea */
+    margin: 20px 0;
+    font-family: Arial, sans-serif; /* Tipo de fuente más legible */
+}
+
+/* Estilos para los encabezados de la tabla */
+th {
+    text-align: center;
+    background-color: #3f51b5; /* Color de fondo oscuro para los encabezados */
+    color: white; /* Texto en color blanco para contraste */
+    padding: 10px; /* Espaciado interno en los encabezados */
+    text-align: left; /* Alineación del texto a la izquierda */
+}
+
+
+td {
+    padding: 8px;
+    border-top: 1px solid #dddddd; /* Borde superior sutil para cada celda */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.container-buttons{
+    display: flex;
+}
+
+.certificado,
+.paz-salvo{
+    margin: 10px;
+    background-color: #3f51b5;
+    border: none;
+    padding: 1em;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 20em;
+    height: 4em;
+    cursor: pointer;
+}
+
+.solicitudes{
+    margin: 10px;
+    background-color: #3f51b5;
+    border: none;
+    padding: 1em;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 12em;
+    cursor: pointer;
+}
+
+.download{
+    margin: 10px;
+    background-color: #0AAB36;
+    border: none;
+    padding: 1em;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 8em;
+    cursor: pointer;
+}
+
+.mas{
+    font-size: 20px;
+}

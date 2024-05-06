@@ -1,20 +1,50 @@
 package com.modulo.certificaciones.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-import lombok.Data;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.util.List;
-
-@Data
 @Entity
-@Table(name = "rol", schema = "certificados")
+@Table(name = "roles", schema = "certificados")
 public class Rol {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
 
-    @OneToMany(mappedBy = "rol")
-    private List<Usuario> usuarios;
+    @Id
+    private Long rolId;
+    private String rolNombre;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "rol")
+    private Set<UsuarioRol> usuarioRoles = new HashSet<>();
+
+    public Rol(){
+
+    }
+
+    public Rol(Long rolId, String rolNombre) {
+        this.rolId = rolId;
+        this.rolNombre = rolNombre;
+    }
+
+    public Long getRolId() {
+        return rolId;
+    }
+
+    public void setRolId(Long rolId) {
+        this.rolId = rolId;
+    }
+
+    public String getRolNombre() {
+        return rolNombre;
+    }
+
+    public void setRolNombre(String rolNombre) {
+        this.rolNombre = rolNombre;
+    }
+
+    public Set<UsuarioRol> getUsuarioRoles() {
+        return usuarioRoles;
+    }
+
+    public void setUsuarioRoles(Set<UsuarioRol> usuarioRoles) {
+        this.usuarioRoles = usuarioRoles;
+    }
 }

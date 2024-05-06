@@ -1,0 +1,22 @@
+<h1>Bienvenido al panel de administrador</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Usuario ID</th>
+      <th>Fecha</th>
+      <th>Estado solicitud</th>
+      <th>Acciones</th>
+      <!-- Agrega más encabezados según las propiedades de tus solicitudes -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let solicitud of totalsolicitudes">
+      <td>{{ solicitud.usuario.nombre }}</td>
+      <td>{{ solicitud.fechaHoraSolicitud }}</td>
+      <td>{{ solicitud.estadoSolicitud}}</td>
+      <td><button (click)="cambiarEstado(solicitud.id, 'LISTO')">Aceptar</button></td>
+      <td><button (click)="cambiarEstado(solicitud.id, 'RECHAZADO')">Rechazar</button></td>
+      <!-- Agrega más celdas según las propiedades de tus solicitudes -->
+    </tr>
+  </tbody>
+</table>
